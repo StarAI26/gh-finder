@@ -1,0 +1,107 @@
+{
+  "scoring": {
+    "dimensions": {
+      "trust": {
+        "weight": 0.15,
+        "enabled": true,
+        "params": {
+          "max_mentions_for_scale": 1000,
+          "max_stars_for_scale": 100000,
+          "timeout": 10
+        }
+      },
+      "semantic": {
+        "weight": 0.20,
+        "enabled": true,
+        "params": {
+          "purpose_match_boost": 15,
+          "tech_stack_match_boost": 5
+        }
+      },
+      "quality": {
+        "weight": 0.15,
+        "enabled": true,
+        "params": {
+          "issue_ratio_threshold": 0.5,
+          "min_issues_for_penalty": 50,
+          "license_quality_weights": {
+            "mit": 1.0,
+            "apache-2.0": 1.0,
+            "bsd-2-clause": 0.9,
+            "bsd-3-clause": 0.9,
+            "gpl-3.0": 0.8,
+            "mpl-2.0": 0.7,
+            "other": 0.5,
+            "no-license": 0.2
+          }
+        }
+      },
+      "community": {
+        "weight": 0.10,
+        "enabled": true,
+        "params": {
+          "max_stars_for_scale": 500000,
+          "max_forks_for_scale": 100000,
+          "max_watchers_for_scale": 50000
+        }
+      },
+      "momentum": {
+        "weight": 0.10,
+        "enabled": true,
+        "params": {
+          "recent_push_days": 30,
+          "active_push_days": 90,
+          "stale_days": 180
+        }
+      },
+      "domain_fit": {
+        "weight": 0.15,
+        "enabled": true,
+        "params": {}
+      },
+      "topics": {
+        "weight": 0.05,
+        "enabled": true,
+        "params": {
+          "topic_match_boost": 3
+        }
+      },
+      "niche_boost": {
+        "weight": 0.10,
+        "enabled": true,
+        "params": {
+          "min_stars": 50,
+          "max_stars": 10000
+        }
+      }
+    }
+  },
+
+  "thresholds": {
+    "min_stars_default": 2,
+    "min_stars_niche": 2,
+    "min_stars_popular": 10,
+    "max_results_per_query": 30,
+    "max_queries_per_search": 12
+  },
+
+  "pool": {
+    "expansion_factor": 3,
+    "max_pool_size": 30,
+    "trust_scorer_pool_ratio": 2
+  },
+
+  "rate_limits": {
+    "unauthenticated_per_min": 10,
+    "authenticated_per_min": 30,
+    "backoff_base": 2.0,
+    "max_retries": 3,
+    "request_timeout": 15
+  },
+
+  "cache": {
+    "default_ttl": 3600,
+    "error_ttl": 60,
+    "etag_enabled": true
+  }
+}

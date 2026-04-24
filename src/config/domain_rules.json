@@ -1,0 +1,62 @@
+{
+  "general": {
+    "description": "Neutral scoring, broad keywords",
+    "default_hints": [],
+    "default_excludes": [],
+    "query_templates": [
+      "{query} topic:{hint}",
+      "{query} {hint}"
+    ],
+    "topic_boost": [],
+    "min_stars": 50,
+    "max_stars": 100000
+  },
+
+  "search_tool": {
+    "description": "Optimized for search/discovery/index tools",
+    "default_hints": ["search", "discovery", "engine", "index", "finder", "crawler"],
+    "default_excludes": ["game", "tutorial", "learning"],
+    "query_templates": [
+      "{query} search engine",
+      "{query} discovery tool",
+      "{query} finder",
+      "search {hint}",
+      "discover {hint}"
+    ],
+    "topic_boost": ["search", "discovery", "indexing"],
+    "min_stars": 20,
+    "max_stars": 10000
+  },
+
+  "frontend_design": {
+    "description": "Optimized for UI/UX/design components",
+    "default_hints": ["css", "ui", "design-system", "components", "frontend", "theme", "template"],
+    "default_excludes": ["backend", "api-server", "database"],
+    "query_templates": [
+      "{query} css framework",
+      "{query} ui components",
+      "{query} design system",
+      "{query} frontend",
+      "{query} template"
+    ],
+    "topic_boost": ["css", "ui", "frontend", "design-system"],
+    "min_stars": 30,
+    "max_stars": 50000
+  },
+
+  "devops": {
+    "description": "Optimized for infrastructure/ops tools",
+    "default_hints": ["deploy", "ci", "monitoring", "infrastructure", "automation", "ops"],
+    "default_excludes": ["game", "frontend", "mobile"],
+    "query_templates": [
+      "{query} devops tool",
+      "{query} infrastructure",
+      "{query} automation",
+      "deploy {hint}",
+      "monitor {hint}"
+    ],
+    "topic_boost": ["devops", "docker", "kubernetes", "ci-cd"],
+    "min_stars": 30,
+    "max_stars": 30000
+  }
+}
